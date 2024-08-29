@@ -30,21 +30,21 @@ rollButt.addEventListener("click", e => {
 
 function roll() {
     if (slot1.getAttribute("rolls") < 100) {
-        slot1.innerText = Math.floor((Math.random() * 10) + 1)
+        slot1.innerText = Math.floor((Math.random() * 5) + 1)
         slot1.setAttribute("rolls", parseInt(slot1.getAttribute("rolls")) + 1)
     } else {
         slot1.setAttribute("done", true)
     }
 
     if (slot2.getAttribute("rolls") < 200) {
-        slot2.innerText = Math.floor((Math.random() * 10) + 1)
+        slot2.innerText = Math.floor((Math.random() * 5) + 1)
         slot2.setAttribute("rolls", parseInt(slot2.getAttribute("rolls")) + 1)
     } else {
         slot2.setAttribute("done", true)
     }
 
     if (slot3.getAttribute("rolls") < 300) {
-        slot3.innerText = Math.floor((Math.random() * 10) + 1)
+        slot3.innerText = Math.floor((Math.random() * 5) + 1)
         slot3.setAttribute("rolls", parseInt(slot3.getAttribute("rolls")) + 1)
     } else {
         slot3.setAttribute("done", true)
@@ -65,12 +65,12 @@ function check() {
     if (slots.some(s => s.innerText == 1)) {
         slots.forEach(s => {
             if (s.innerText == 1) {
-                balance.innerText += amount * .25
+                balance.innerText = parseInt(balance.innerText) + amount * .25
             }
         })
     }
 }
 
 function win() {
-    balance.innerText += amount * parseInt(slot1.innerText)
+    balance.innerText = parseInt(balance.innerText) + amount * parseInt(slot1.innerText)
 }
