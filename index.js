@@ -65,12 +65,12 @@ function check() {
     if (slots.some(s => s.innerText == 1)) {
         slots.forEach(s => {
             if (s.innerText == 1) {
-                balance.innerText = parseInt(balance.innerText) + amount * .25
+                balance.innerText = parseFloat(balance.innerText) + amount.value * .25
             }
         })
     }
 }
 
 function win() {
-    balance.innerText = parseInt(balance.innerText) + amount * parseInt(slot1.innerText)
+    balance.innerText = parseFloat(balance.innerText) + amount.value * parseInt(slot1.innerText)
 }
