@@ -60,7 +60,6 @@ function roll() {
 function check() {
     if (slot1.innerText == slot2.innerText == slot3.innerText) {
         win()
-        return
     }
     if (slots.some(s => s.innerText == 1)) {
         slots.forEach(s => {
