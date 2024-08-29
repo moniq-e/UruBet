@@ -3,20 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
         <title>UruBet</title>
     </head>
     <body>
         <script defer type="module" src="index.js"></script>
-        <div id="upper"></div>
-        <div id="content">
-            <span id="s1">0</span>
-            <span id="s2">0</span>
-            <span id="s3">0</span>
+        <div id="upper">
+            <h1>UruBET</h1>
         </div>
-        <div id="down">
-            <span id="balance"></span>
-            <input type="number" id="amount" min=".5">
-            <button>Rolar</button>
+        <div id="container">
+            <div id="content">
+                <span class="slot" id="s1">0</span>
+                <span class="slot" id="s2">0</span>
+                <span class="slot" id="s3">0</span>
+            </div>
+            <div id="down">
+                <label>Saldo: <span id="balance">10</span></label>
+                <input type="number" id="amount" min=".5" value="0.5">
+                <button>Rolar</button>
+            </div>
         </div>
     </body>
 </html>
