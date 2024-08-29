@@ -65,7 +65,7 @@ function check() {
     if (slots.some(s => s.innerText == 1)) {
         slots.forEach(s => {
             if (s.innerText == 1) {
-                balance.innerText = parseFloat(balance.innerText) + amount.value * .25
+                balance.innerText = parseFloat(balance.innerText) + amount.value * 1.5
             }
         })
     }
