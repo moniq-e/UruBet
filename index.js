@@ -11,7 +11,7 @@ const slots = [slot1, slot2, slot3]
 let interval
 
 rollButt.addEventListener("click", e => {
-    if (amount.value && amount.value <= parseInt(balance.innerText)) {
+    if (amount.value && amount.value <= parseFloat(balance.innerText)) {
         balance.innerText -= amount.value
 
         slot1.setAttribute("rolls", 0)
