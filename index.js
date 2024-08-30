@@ -31,6 +31,7 @@ rollButt.addEventListener("click", e => {
         clearInterval(interval)
         interval = setInterval(roll, 15)
         rollButt.disabled = true
+        rollButt.style.filter = "saturate(0%)"
         amount.disabled = true
     }
 })
@@ -62,6 +63,7 @@ function roll() {
 
     if (slot1.getAttribute("done") && slot2.getAttribute("done") && slot3.getAttribute("done")) {
         rollButt.disabled = false
+        rollButt.style.filter = "saturate(50%)"
         amount.disabled = false
         check()
         clearInterval(interval)
