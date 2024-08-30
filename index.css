@@ -1,15 +1,18 @@
 body {
-    background-color: rgb(41, 41, 41);
+    background-color: #0F0F0F;
     padding: 0;
     margin: 0;
     font-family: sans-serif;
 }
 div#upper {
     padding: 10px 50px;
-    background: linear-gradient(24deg, rgb(3, 78, 16) 9%, rgba(9,121,37,1) 29%, rgba(0,255,46,1) 100%);
+    background: linear-gradient(24deg, #005B41, #008170 100%);
     color: white;
     box-shadow: 0 0 1em rgb(0, 0, 0);
     border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+    gap: 50px;
 }
 div#container {
     width: 100%;
@@ -30,7 +33,7 @@ div#content {
 span.slot {
     background-color: white;
     padding: 20px;
-    border: 10px inset black;
+    border: 10px inset #0F0F0F;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +57,7 @@ label#saldo {
     background-color: black;
 }
 input#amount {
-    background-color: gray;
+    background-color: #232D3F;
     color: white;
     width: 5em;
     text-align: center;
@@ -62,6 +65,7 @@ input#amount {
     outline: none;
     margin: 5px;
     border-radius: 2px;
+    border: none;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -72,7 +76,7 @@ button {
     width: 90%;
     position: fixed;
     bottom: 10px;
-    background: linear-gradient(24deg, rgb(3, 78, 16) 9%, rgba(9,121,37,1) 29%, rgba(0,255,46,1) 100%);
+    background: linear-gradient(200deg, #005B41, #008170 100%);
     padding: 20px;
     border-radius: 1em;
     outline: none;
@@ -81,9 +85,18 @@ button {
     font-weight: bold;
     font-size: 150%;
 }
+button:hover {
+    cursor: pointer;
+}
 div#down label {
     color: white;
 }
-div#down input {
-    back
+img#icon {
+    filter: invert();
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+span.sortedNumber{
+    display: none;
 }
