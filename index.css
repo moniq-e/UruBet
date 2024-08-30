@@ -5,7 +5,7 @@ body {
     font-family: sans-serif;
 }
 div#upper {
-    padding: 10px;
+    padding: 10px 50px;
     background: linear-gradient(24deg, rgb(3, 78, 16) 9%, rgba(9,121,37,1) 29%, rgba(0,255,46,1) 100%);
     color: white;
     box-shadow: 0 0 1em rgb(0, 0, 0);
@@ -30,14 +30,14 @@ div#content {
 span.slot {
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    display: inline-block;
-    margin: 20px;
-    font-size: 200%;
-    width: 90%;
-    height: auto;
+    border: 10px inset black;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+    width: 200px;
+    height: 200px;
     text-align: center;
-    
 }
 div#down {
     display: flex;
@@ -45,13 +45,28 @@ div#down {
     justify-content: center;
     align-items: center;
 }
-label {
+label#saldo {
     border: 1px solid black;
     padding: 10px;
     border-radius: 10px;
     margin: 1em;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.63);
     background-color: black;
+}
+input#amount {
+    background-color: gray;
+    color: white;
+    width: 5em;
+    text-align: center;
+    padding: 10px;
+    outline: none;
+    margin: 5px;
+    border-radius: 2px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 button {
     width: 90%;
