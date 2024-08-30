@@ -11,8 +11,7 @@ const slots = [slot1, slot2, slot3]
 let interval
 
 rollButt.addEventListener("click", e => {
-    if (!amount.value) return
-    amount.value = Math.max(amount.value, 0)
+    if (!amount.value || amount.value < 0) return
 
     if (amount.value <= parseFloat(balance.innerText)) {
         balance.innerText -= amount.value
@@ -28,6 +27,7 @@ rollButt.addEventListener("click", e => {
         clearInterval(interval)
         interval = setInterval(roll, 15)
         rollButt.disabled = true
+        amount.disabled = true
     }
 })
 
@@ -55,6 +55,7 @@ function roll() {
 
     if (slot1.getAttribute("done") && slot2.getAttribute("done") && slot3.getAttribute("done")) {
         rollButt.disabled = false
+        amount.disabled = false
         check()
         clearInterval(interval)
     }
