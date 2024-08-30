@@ -58,7 +58,7 @@ function roll() {
 }
 
 function check() {
-    if (slot1.innerText == slot2.innerText == slot3.innerText) {
+    if (slot1.innerText == slot2.innerText && slot2.innerText == slot3.innerText) {
         win()
     }
     if (slots.some(s => s.innerText == 1)) {
@@ -71,5 +71,5 @@ function check() {
 }
 
 function win() {
-    balance.innerText = parseFloat(balance.innerText) + amount.value * parseInt(slot1.innerText)
+    balance.innerText = parseFloat(balance.innerText) + amount.value * parseInt(slot1.innerText) * 2
 }
