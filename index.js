@@ -1,4 +1,6 @@
-const rollButt = document.querySelector("button")
+const rollButt = document.querySelector("button#buttRoll")
+const increase = document.querySelector("button#increase")
+const decrease = document.querySelector("button#decrease")
 const amount = document.querySelector("input#amount")
 const balance = document.querySelector("span#balance")
 
@@ -13,6 +15,14 @@ const img3 = document.querySelector("img#s3")
 const slots = [slot1, slot2, slot3]
 
 let interval
+
+decrease.addEventListener("click", e => {
+    if(amount.value - 1 < 0) return
+    amount.value = parseFloat(amount.value) - 1
+})
+increase.addEventListener("click", e => {
+    amount.value = parseFloat(amount.value) + 1
+})
 
 rollButt.addEventListener("click", e => {
     if (!amount.value || amount.value < 0) return
@@ -29,7 +39,7 @@ rollButt.addEventListener("click", e => {
         slot3.removeAttribute("done")
 
         clearInterval(interval)
-        interval = setInterval(roll, 15)
+        interval = setInterval(roll, 20)
         rollButt.disabled = true
         rollButt.style.filter = "saturate(0%)"
         amount.disabled = true
@@ -45,7 +55,7 @@ function roll() {
         slot1.setAttribute("done", true)
     }
 
-    if (slot2.getAttribute("rolls") < 200) {
+    if (slot2.getAttribute("rolls") < 150) {
         slot2.innerText = Math.floor((Math.random() * 5) + 1)
         img2.src = "images/imagem" + slot2.innerText + ".png"
         slot2.setAttribute("rolls", parseInt(slot2.getAttribute("rolls")) + 1)
@@ -53,7 +63,7 @@ function roll() {
         slot2.setAttribute("done", true)
     }
 
-    if (slot3.getAttribute("rolls") < 300) {
+    if (slot3.getAttribute("rolls") < 200) {
         slot3.innerText = Math.floor((Math.random() * 5) + 1)
         img3.src = "images/imagem" + slot3.innerText + ".png"
         slot3.setAttribute("rolls", parseInt(slot3.getAttribute("rolls")) + 1)
