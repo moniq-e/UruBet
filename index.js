@@ -1,6 +1,10 @@
 const rollButt = document.querySelector("button#buttRoll")
 const increase = document.querySelector("button#increase")
 const decrease = document.querySelector("button#decrease")
+const infoButt = document.querySelector("button#buttHelp")
+const closeButt = document.querySelector("button#close")
+
+const help = document.querySelector("div#help")
 
 const amount = document.querySelector("input#amount")
 const balance = document.querySelector("span#balance")
@@ -8,6 +12,8 @@ const balance = document.querySelector("span#balance")
 const slot1 = document.querySelector("input#s1")
 const slot2 = document.querySelector("input#s2")
 const slot3 = document.querySelector("input#s3")
+
+const windows = document.querySelectorAll("span.slot")
 
 const img1 = document.querySelector("img#i1")
 const img2 = document.querySelector("img#i2")
@@ -25,7 +31,18 @@ increase.addEventListener("click", e => {
     amount.value = Math.min(parseFloat(balance.innerText), parseFloat(amount.value) + 1)
 })
 
+infoButt.addEventListener("click", e => {
+    help.style.display = "flex"
+})
+closeButt.addEventListener("click", e => {
+    help.style.display = "none"
+})
+
 rollButt.addEventListener("click", e => {
+    for (const w of windows) {
+        w.classList.remove("win")
+    }
+    
     if (!amount.value || parseFloat(amount.value) < 0) return
 
     if (parseFloat(amount.value) <= parseFloat(balance.innerText)) {
@@ -117,4 +134,7 @@ function check() {
 
 function win() {
     balance.innerText = parseFloat(balance.innerText) + amount.value * parseInt(slot1.innerText) * 2
+    for (const w of windows) {
+        w.classList.add("win")
+    }
 }

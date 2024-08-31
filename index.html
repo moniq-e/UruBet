@@ -9,6 +9,16 @@
     </head>
     <body>
         <script defer type="module" src="index.js"></script>
+        <div id="help">
+            <div id="table">            
+                <div class="tableItem"><img style="filter:invert()" width="50" src="images/imagem1.png" alt=""> 1.5x</div>
+                <div class="tableItem"><img width="50" src="images/imagem2.png" alt=""> 4x</div>
+                <div class="tableItem"><img style="filter:invert()" width="50" src="images/imagem3.png" alt=""> 6x</div>
+                <div class="tableItem"><img width="50" src="images/imagem4.png" alt=""> 8x</div>
+                <div class="tableItem"><img style="filter:invert()" width="50" src="images/imagem5.png" alt=""> 10x</div>
+                <button id="close">Fechar</button>
+            </div>
+        </div>
         <div id="upper">
             <img id="icon" src="images/imagem1.png"/><h1>UruBET</h1>
         </div>
@@ -17,9 +27,9 @@
             <input class="sortedNumber" id="s2" type="hidden">
             <input class="sortedNumber" id="s3" type="hidden">
             <div id="content">
-                <span class="slot"><img id="i1" src="images/imagem1.png" width="50"/></span>
-                <span class="slot"><img id="i2" src="images/imagem1.png" width="50"/></span>
-                <span class="slot"><img id="i3" src="images/imagem1.png" width="50"/></span>
+                <span class="slot" id="w1"><img id="i1" src="images/imagem1.png" width="50"/></span>
+                <span class="slot" id="w2"><img id="i2" src="images/imagem1.png" width="50"/></span>
+                <span class="slot" id="w3"><img id="i3" src="images/imagem1.png" width="50"/></span>
             </div>
             <div id="down">
                 <label id="saldo">Saldo: UR$<span id="balance">10</span></label>
@@ -29,7 +39,11 @@
                     <input type="number" id="amount" min="1" value="1">
                     <button class="changeAmount" id="increase">+</button>
                 </div>
-                <button id="buttRoll">Rolar</button>
+                <div id="buttons">
+                    <button id="buttHelp"><img src="images/help.png" width="50"></button>
+                    <button id="buttRoll">Rolar</button>
+                    <button id="buttReset" onClick="window.location.reload()"><img src="images/restart.png" width="50"></button>
+                </div>
             </div>
         </div>
     </body>

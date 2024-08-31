@@ -42,6 +42,16 @@ span.slot {
     text-align: center;
     background: linear-gradient(180deg, lightgrey 0%,white 25%,white 75%, lightgray 100%);
 }
+.win {
+    animation: win .5s linear infinite;
+}
+@keyframes win {
+
+    50% {
+        border: 10px inset #008170; 
+    }
+    
+}
 div#down {
     display: flex;
     flex-direction: column;
@@ -72,18 +82,25 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-button#buttRoll{
-    width: 90%;
+div#buttons {
+    display: flex;
+    width: 100%;
+    padding: 10px;
     position: fixed;
+    bottom: 0;
+}
+button#buttRoll {
+    width: 100%;
     bottom: 10px;
     background: linear-gradient(200deg, #005B41, #008170 100%);
     padding: 20px;
-    border-radius: 1em;
+    border-radius: 15px;
     outline: none;
     border: none;
     color: white;
     font-weight: bold;
     font-size: 150%;
+    margin: 5px;
 }
 button:hover {
     cursor: pointer;
@@ -111,4 +128,60 @@ button.changeAmount{
 div#values {
     display: flex;
     align-items: center;
+}
+div#help {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #0F0F0F;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+div#help div#table {
+    background-color: #0F0F0F;
+    width: 90%;
+    height: 90%;
+    text-align: center;
+}
+div.tableItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0081705e;
+    border-left: 3px solid #005B41;
+    margin: 15px;
+    padding: 5px;
+}
+button#close {
+    width: 90%;
+    background: linear-gradient(200deg, #005B41, #008170 100%);
+    padding: 20px;
+    border-radius: 1em;
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 150%;
+}
+button#buttHelp, button#buttReset {
+    border-radius: 15px;
+    background: linear-gradient(140deg, #005B41, #008170 100%);
+    padding: 30px;
+    width: 20%;
+    outline: none;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 5px;
+}
+button#buttHelp img, button#buttReset img {
+    height: 30px;
+    width: 30px;
+    filter: invert();
 }
