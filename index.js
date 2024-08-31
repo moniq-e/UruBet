@@ -42,6 +42,8 @@ rollButt.addEventListener("click", e => {
         interval = setInterval(roll, 20)
         rollButt.disabled = true
         rollButt.style.filter = "saturate(0%)"
+        increase.disabled = true;
+        decrease.disabled = true;
         amount.disabled = true
     }
 })
@@ -75,6 +77,8 @@ function roll() {
         rollButt.disabled = false
         rollButt.style.filter = "saturate(50%)"
         amount.disabled = false
+        increase.disabled = false;
+        decrease.disabled = false;
         check()
         clearInterval(interval)
     }
