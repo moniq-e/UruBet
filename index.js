@@ -42,6 +42,9 @@ rollButt.addEventListener("click", e => {
     for (const w of windows) {
         w.classList.remove("win")
     }
+    img1.style.animation = "spin .2s ease-in-out infinite"
+    img2.style.animation = "spin .2s ease-in-out infinite"
+    img3.style.animation = "spin .2s ease-in-out infinite"
     
     if (!amount.value || parseFloat(amount.value) < 0) return
 
@@ -67,7 +70,7 @@ rollButt.addEventListener("click", e => {
         slot3.removeAttribute("done")
 
         clearInterval(interval)
-        interval = setInterval(roll, 20)
+        interval = setInterval(roll, 70)
 
         rollButt.style.filter = "saturate(0%)"
         rollButt.disabled = true
@@ -78,33 +81,36 @@ rollButt.addEventListener("click", e => {
 })
 
 function roll() {
-    if (slot1.getAttribute("rolls") < 100) {
+    if (slot1.getAttribute("rolls") < 30) {
         slot1.innerText = Math.floor((Math.random() * 5) + 1)
         img1.src = "images/imagem" + slot1.innerText + ".png"
         slot1.setAttribute("rolls", parseInt(slot1.getAttribute("rolls")) + 1)
     } else {
         slot1.innerText = generated[0]
         img1.src = "images/imagem" + slot1.innerText + ".png"
+        img1.style.animation = "spinFinish .2s ease-in-out"
         slot1.setAttribute("done", true)
     }
 
-    if (slot2.getAttribute("rolls") < 150) {
+    if (slot2.getAttribute("rolls") < 40) {
         slot2.innerText = Math.floor((Math.random() * 5) + 1)
         img2.src = "images/imagem" + slot2.innerText + ".png"
         slot2.setAttribute("rolls", parseInt(slot2.getAttribute("rolls")) + 1)
     } else {
         slot2.innerText = generated[1]
         img2.src = "images/imagem" + slot2.innerText + ".png"
+        img2.style.animation = "spinFinish .2s ease-in-out"
         slot2.setAttribute("done", true)
     }
 
-    if (slot3.getAttribute("rolls") < 200) {
+    if (slot3.getAttribute("rolls") < 50) {
         slot3.innerText = Math.floor((Math.random() * 5) + 1)
         img3.src = "images/imagem" + slot3.innerText + ".png"
         slot3.setAttribute("rolls", parseInt(slot3.getAttribute("rolls")) + 1)
     } else {
         slot3.innerText = generated[2]
         img3.src = "images/imagem" + slot3.innerText + ".png"
+        img3.style.animation = "spinFinish .2s ease-in-out"
         slot3.setAttribute("done", true)
     }
 

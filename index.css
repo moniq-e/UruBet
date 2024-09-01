@@ -3,6 +3,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
+    z-index: 1;
 }
 div#upper {
     padding: 10px 20px;
@@ -12,7 +13,8 @@ div#upper {
     border-bottom: 2px solid black;
     display: flex;
     align-items: center;
-    gap: 50px;
+    justify-content: center;
+    text-align: center;
 }
 div#container {
     width: 100%;
@@ -32,7 +34,7 @@ div#content {
 }
 span.slot {
     padding: 20px;
-    border: 10px inset #0F0F0F;
+    border: 10px groove #005B41;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -41,16 +43,17 @@ span.slot {
     height: 200px;
     text-align: center;
     background: linear-gradient(180deg, lightgrey 0%,white 25%,white 75%, lightgray 100%);
+    z-index: 1;
+    border-right: 1px solid #0F0F0F;
+    border-left: 1px solid #0F0F0F;
 }
 .win {
-    animation: win .5s linear infinite;
+    animation: win .4s linear infinite;
 }
 @keyframes win {
-
     50% {
-        border: 10px inset #008170; 
+        background: linear-gradient(180deg, lightgray 0%,rgb(202, 248, 198) 60%, #83afa9 120%); 
     }
-    
 }
 div#down {
     display: flex;
@@ -110,6 +113,8 @@ div#down label {
 }
 img#icon {
     filter: invert();
+    position: fixed;
+    left: 20px;
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -184,4 +189,26 @@ button#buttHelp img, button#buttReset img {
     height: 30px;
     width: 30px;
     filter: invert();
+}
+img.spin {
+    animation: spin .2s ease-in-out infinite;
+}
+img.spinImg {
+    width: 50px;
+}
+@keyframes spin {
+    0% {
+        transform: translateY(-200%);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}
+@keyframes spinFinish {
+    0% {
+        transform: translateY(-200%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
