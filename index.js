@@ -42,13 +42,14 @@ rollButt.addEventListener("click", e => {
     for (const w of windows) {
         w.classList.remove("win")
     }
-    img1.style.animation = "spin .2s ease-in-out infinite"
-    img2.style.animation = "spin .2s ease-in-out infinite"
-    img3.style.animation = "spin .2s ease-in-out infinite"
+    
     
     if (!amount.value || parseFloat(amount.value) < 0) return
 
     if (parseFloat(amount.value) <= parseFloat(balance.innerText)) {
+        img1.style.animation = "spin .2s ease-in-out infinite"
+        img2.style.animation = "spin .2s ease-in-out infinite"
+        img3.style.animation = "spin .2s ease-in-out infinite"
         generated = generated.map(() => Math.floor((Math.random() * 5) + 1))
         
         //align the two equals numbers
