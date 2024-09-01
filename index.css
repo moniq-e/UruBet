@@ -145,6 +145,10 @@ div#help {
     align-items: center;
     color: white;
 }
+div#table p {
+    font-style: italic;
+    color: #8a8a8a;
+}
 div#help div#table {
     background-color: #0F0F0F;
     width: 90%;
@@ -158,7 +162,7 @@ div.tableItem {
     background-color: #0081705e;
     border-left: 3px solid #005B41;
     margin: 15px;
-    padding: 5px;
+    padding: 10px;
 }
 button#close {
     width: 90%;
