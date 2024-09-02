@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+'<!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -10,7 +10,6 @@
     <body>
         <script defer type="module" src="index.js"></script>
         <div id="help">
-            
             <div id="table"> 
                 <p>Lembre-se: quanto mais você aposta, mais rico você pode ficar! Não deixe qualquer obstáculo ser uma barreira, aposte seu salário, carro, casa e muito mais!</p>           
                 <div class="tableItem"><img style="filter:invert()" width="50" src="images/imagem1.png" alt=""> 1.5x</div>
@@ -23,6 +22,7 @@
         </div>
         <div id="upper">
             <img id="icon" src="images/imagem1.png"/><h1>UruBET</h1>
+            <img id="restart" src="images/reset.png" alt="Reiniciar">
         </div>
         <div id="container">
             <input class="sortedNumber" id="s1" type="hidden">
@@ -34,7 +34,7 @@
                 <span class="slot" id="w3"><img class="spinImg" id="i3" src="images/imagem1.png"/></span>
             </div>
             <div id="down">
-                <label id="saldo">Saldo: UR$<span id="balance">10</span></label>
+                <label id="saldo">Saldo: UR$<span id="balance">10</span></label><span id="winAmount">0</span>
                 <label for="amount">Aposta: </label>
                 <div id="values">
                     <button class="changeAmount" id="decrease">-</button>
@@ -44,7 +44,7 @@
                 <div id="buttons">
                     <button id="buttHelp"><img src="images/help.png" width="50"></button>
                     <button id="buttRoll">Rolar</button>
-                    <button id="buttReset" onClick="window.location.reload()"><img src="images/restart.png" width="50"></button>
+                    <button id="buttAutoRoll"><img src="images/restart.png" width="50"></button>
                 </div>
             </div>
         </div>

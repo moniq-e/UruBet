@@ -52,7 +52,7 @@ span.slot {
 }
 @keyframes win {
     50% {
-        background: linear-gradient(180deg, lightgray 0%,rgb(202, 248, 198) 60%, #83afa9 120%); 
+        background: linear-gradient(180deg, lightgray 0%, white 25% , rgb(202, 248, 198) 80%, #83afa9 100%); 
     }
 }
 div#down {
@@ -68,6 +68,7 @@ label#saldo {
     margin: 1em;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.63);
     background-color: black;
+    display: inline;
 }
 input#amount {
     background-color: #232D3F;
@@ -80,6 +81,31 @@ input#amount {
     border-radius: 2px;
     border: none;
 }
+span#winAmount {
+    position: relative;
+    bottom: 45px;
+    color: #008170;
+    left: 90px;
+    opacity: 0;
+    font-weight: bold;
+}
+span.winnimation {
+    animation: winAmount 1.5s ease-out;
+}
+@keyframes winAmount {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        bottom: 55px;
+    }
+    100% {
+        opacity: 0%;
+        bottom: 60px;
+
+    }
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -118,6 +144,16 @@ img#icon {
     display: inline-block;
     width: 50px;
     height: 50px;
+}
+img#restart {
+    position: fixed;
+    right: 20px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+img#restart:hover {
+    cursor: pointer;
 }
 button.changeAmount{
     display: inline-block;
@@ -175,7 +211,7 @@ button#close {
     font-weight: bold;
     font-size: 150%;
 }
-button#buttHelp, button#buttReset {
+button#buttHelp, button#buttAutoRoll {
     border-radius: 15px;
     background: linear-gradient(140deg, #005B41, #008170 100%);
     padding: 30px;
@@ -189,7 +225,7 @@ button#buttHelp, button#buttReset {
     font-weight: bold;
     margin: 5px;
 }
-button#buttHelp img, button#buttReset img {
+button#buttHelp img, button#buttAutoRoll img {
     height: 30px;
     width: 30px;
     filter: invert();
@@ -202,17 +238,34 @@ img.spinImg {
 }
 @keyframes spin {
     0% {
-        transform: translateY(-200%);
+        opacity: 0%; 
+        transform: translateY(-200%);   
+    }
+    50% { 
+        opacity: 1;
     }
     100% {
         transform: translateY(200%);
+        opacity: 0;
     }
 }
 @keyframes spinFinish {
     0% {
+        opacity: 0%;
         transform: translateY(-200%);
+    }
+    50% {
+        opacity: 1;
     }
     100% {
         transform: translateY(0%);
+    }
+}
+img.autoRoll {
+    animation: autoRoll .8s linear infinite;
+}
+@keyframes autoRoll {
+    100% {
+        transform: rotate(360deg);
     }
 }
