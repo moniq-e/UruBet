@@ -26,7 +26,9 @@ const inputs = [input1, input2, input3]
 
 let interval, autoRoll = false, generated = [0, 0, 0]
 
-balance.innerText = localStorage.getItem("urubet") ?? 10
+balance.innerText = localStorage.getItem("urubet") ?? 20
+
+let safeBalance = parseFloat(balance.innerText)
 
 restart.addEventListener("click", _ => {
     localStorage.removeItem("urubet")
@@ -37,7 +39,7 @@ decrease.addEventListener("click", _ => {
     amount.value = Math.max(0, parseFloat(amount.value) - 1)
 })
 increase.addEventListener("click", _ => {
-    amount.value = Math.min(parseFloat(balance.innerText), parseFloat(amount.value) + 1)
+    amount.value = Math.min(parseFloat(safeBalance), parseFloat(amount.value) + 1)
 })
 
 infoButt.addEventListener("click", _ => {
@@ -63,7 +65,7 @@ rollButt.addEventListener("click", _ => {
 
     if (!amount.value || parseFloat(amount.value) < 0) return
 
-    if (parseFloat(amount.value) <= parseFloat(balance.innerText)) {
+    if (parseFloat(amount.value) <= parseFloat(safeBalance)) {
         img1.style.animation = "spin .2s ease-in-out infinite"
         img2.style.animation = "spin .2s ease-in-out infinite"
         img3.style.animation = "spin .2s ease-in-out infinite"
@@ -77,7 +79,7 @@ rollButt.addEventListener("click", _ => {
             generated[2] = temp
         }
 
-        balance.innerText -= amount.value
+        setBalance(safeBalance - amount.value)
 
         input1.setAttribute("rolls", 0)
         input2.setAttribute("rolls", 0)
@@ -157,7 +159,7 @@ function check() {
                 bonus += amount.value * 1.5
             }
         })
-        balance.innerText = parseFloat(balance.innerText) + bonus
+        setBalance(parseFloat(safeBalance) + bonus)
         winAmount.innerText = parseFloat(winAmount.innerText) + bonus
     }
     if (autoRoll) {
@@ -167,15 +169,20 @@ function check() {
         winAmount.classList.add("winnimation")
         winAmount.innerText = "+" + winAmount.innerText
     }
-    localStorage.setItem("urubet", balance.innerText)
+    localStorage.setItem("urubet", safeBalance)
 }
 
 function win() {
     let bonus = amount.value * parseInt(input1.innerText) * 2
-    balance.innerText = parseFloat(balance.innerText) + bonus
+    setBalance(parseFloat(safeBalance) + bonus)
     winAmount.innerText = parseFloat(winAmount.innerText) + bonus
 
     for (const w of windows) {
         w.classList.add("win")
     }
+}
+
+function setBalance(value) {
+    safeBalance = value
+    balance.innerText = parseFloat(value)
 }
