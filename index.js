@@ -24,6 +24,8 @@ const img3 = document.querySelector("img#i3")
 
 import tables from './tables.json' with { type: 'json' }
 
+const max = 6
+
 const inputs = [input1, input2, input3]
 
 let interval, autoRoll = false, generated = [0, 0, 0]
@@ -71,7 +73,7 @@ rollButt.addEventListener("click", _ => {
         img1.style.animation = "spin .2s ease-in-out infinite"
         img2.style.animation = "spin .2s ease-in-out infinite"
         img3.style.animation = "spin .2s ease-in-out infinite"
-        generated = generated.map(() => Math.floor((Math.random() * 5) + 1))
+        generated = generated.map(() => Math.floor((Math.random() * max) + 1))
         
         //align the two equals numbers
         generated.sort(Math.random() < 0.5 ? (a, b) => a - b : (a, b) => b - a)
@@ -104,7 +106,7 @@ rollButt.addEventListener("click", _ => {
 
 function roll() {
     if (input1.getAttribute("rolls") < 30) {
-        input1.innerText = Math.floor((Math.random() * 6) + 1)
+        input1.innerText = Math.floor((Math.random() * max) + 1)
         img1.src = "images/imagem" + input1.innerText + ".png"
         input1.setAttribute("rolls", parseInt(input1.getAttribute("rolls")) + 1)
     } else {
@@ -115,7 +117,7 @@ function roll() {
     }
 
     if (input2.getAttribute("rolls") < 40) {
-        input2.innerText = Math.floor((Math.random() * 6) + 1)
+        input2.innerText = Math.floor((Math.random() * max) + 1)
         img2.src = "images/imagem" + input2.innerText + ".png"
         input2.setAttribute("rolls", parseInt(input2.getAttribute("rolls")) + 1)
     } else {
@@ -126,7 +128,7 @@ function roll() {
     }
 
     if (input3.getAttribute("rolls") < 50) {
-        input3.innerText = Math.floor((Math.random() * 6) + 1)
+        input3.innerText = Math.floor((Math.random() * max) + 1)
         img3.src = "images/imagem" + input3.innerText + ".png"
         input3.setAttribute("rolls", parseInt(input3.getAttribute("rolls")) + 1)
     } else {
