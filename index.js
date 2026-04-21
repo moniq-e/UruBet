@@ -22,6 +22,8 @@ const img1 = document.querySelector("img#i1")
 const img2 = document.querySelector("img#i2")
 const img3 = document.querySelector("img#i3")
 
+const history = document.querySelector("div#history")
+
 import tables from './tables.json' with { type: 'json' }
 
 const max = 6
@@ -163,6 +165,7 @@ function check() {
                 bonus += amount.value * 1.5
             }
         })
+        addWinToHistory("1".repeat(bonus / 1.5 / amount.value), amount.value, bonus)
         setBalance(parseFloat(safeBalance) + bonus)
         winAmount.innerText = parseFloat(winAmount.innerText) + bonus
     }
@@ -181,6 +184,8 @@ function win() {
     setBalance(parseFloat(safeBalance) + bonus)
     winAmount.innerText = parseFloat(winAmount.innerText) + bonus
 
+    addWinToHistory(input1.innerText.repeat(3), amount.value, bonus)
+
     for (const w of windows) {
         w.classList.add("win")
     }
@@ -189,4 +194,22 @@ function win() {
 function setBalance(value) {
     safeBalance = value
     balance.innerText = parseFloat(value)
+}
+
+/**
+ * @param {string} slots
+ */
+function addWinToHistory(slots, value, bonus) {
+    if (history.children.length >= 10) {
+        history.removeChild(history.firstChild())
+    }
+
+    let span = document.createElement("span")
+    slots.split().forEach(i => {
+        let img = document.createElement("img")
+        img.src = "images/imagem" + i + ".png"
+        span.appendChild(img)
+    })
+    span.innerText = ` + ${value} = ${bonus}`
+    history.appendChild(span)
 }
