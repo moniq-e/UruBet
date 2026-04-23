@@ -269,3 +269,32 @@ img.autoRoll {
         transform: rotate(360deg);
     }
 }
+
+div#history {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+div.historyItem {
+    width: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 10px groove #005B41;
+    background: linear-gradient(180deg, lightgrey 0%,white 25%,white 75%, lightgray 100%);
+    z-index: 1;
+    border-right: 1px solid #0F0F0F;
+    border-left: 1px solid #0F0F0F;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    span {
+        margin-left: 9px;
+        font-size: 95%;
+    }
+}

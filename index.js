@@ -154,10 +154,7 @@ function roll() {
 function check() {
     winAmount.innerText = 0
     let won = false
-    if (input1.innerText == input2.innerText && input2.innerText == input3.innerText) {
-        won = true
-        win()
-    }
+
     if (inputs.some(s => s.innerText == 1)) {
         let bonus = 0
         inputs.forEach(s => {
@@ -168,7 +165,12 @@ function check() {
         addWinToHistory("1".repeat(bonus / 1.5 / amount.value), amount.value, bonus)
         setBalance(parseFloat(safeBalance) + bonus)
         winAmount.innerText = parseFloat(winAmount.innerText) + bonus
+
+    } else if (input1.innerText == input2.innerText && input2.innerText == input3.innerText) {
+        won = true
+        win()
     }
+
     if (autoRoll) {
         setTimeout(() => rollButt.click(), won ? 1500 : 500)
     }
@@ -201,15 +203,21 @@ function setBalance(value) {
  */
 function addWinToHistory(slots, value, bonus) {
     if (history.children.length >= 10) {
-        history.removeChild(history.firstChild())
+        history.removeChild(history.firstChild)
     }
 
-    let span = document.createElement("span")
-    slots.split().forEach(i => {
+    let div = document.createElement("div")
+    div.className = "historyItem"
+
+    slots.split("").forEach(i => {
         let img = document.createElement("img")
         img.src = "images/imagem" + i + ".png"
-        span.appendChild(img)
+        div.appendChild(img)
     })
-    span.innerText = ` + ${value} = ${bonus}`
-    history.appendChild(span)
+
+    let span = document.createElement("span")
+    span.innerText = `x ${value} = ${bonus}`
+
+    div.appendChild(span)
+    history.appendChild(div)
 }
