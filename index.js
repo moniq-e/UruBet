@@ -25,6 +25,7 @@ const img3 = document.querySelector("img#i3")
 const history = document.querySelector("div#history")
 
 import tables from './tables.json' with { type: 'json' }
+import { insert, retrieve } from './supabase.js'
 
 const max = 6
 
@@ -32,7 +33,10 @@ const inputs = [input1, input2, input3]
 
 let interval, autoRoll = false, generated = [0, 0, 0]
 
-balance.innerText = localStorage.getItem("urubet") ?? 20
+const username = window.prompt("Digite seu nome de usuário:")
+
+//balance.innerText = localStorage.getItem("urubet") ?? 20
+balance.innerText = retrieve(username) ?? 20
 
 let safeBalance = parseFloat(balance.innerText)
 
@@ -178,7 +182,6 @@ function check() {
         winAmount.classList.add("winnimation")
         winAmount.innerText = "+" + winAmount.innerText
     }
-    localStorage.setItem("urubet", safeBalance)
 }
 
 function win() {
@@ -196,6 +199,7 @@ function win() {
 function setBalance(value) {
     safeBalance = value
     balance.innerText = parseFloat(value)
+    insert(username, value)
 }
 
 /**
