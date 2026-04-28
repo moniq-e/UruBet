@@ -40,8 +40,7 @@ balance.innerText = (await retrieve(username)) ?? 20
 let safeBalance = parseFloat(balance.innerText)
 
 restart.addEventListener("click", _ => {
-    localStorage.removeItem("urubet")
-    location.reload()
+    insert(username, 20).then(location.reload)
 })
 
 decrease.addEventListener("click", _ => {
