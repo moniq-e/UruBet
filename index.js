@@ -35,8 +35,7 @@ let interval, autoRoll = false, generated = [0, 0, 0]
 
 const username = window.prompt("Digite seu nome de usuário:")
 
-//balance.innerText = localStorage.getItem("urubet") ?? 20
-balance.innerText = retrieve(username) ?? 20
+balance.innerText = (await retrieve(username)) ?? 20
 
 let safeBalance = parseFloat(balance.innerText)
 
