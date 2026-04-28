@@ -39,8 +39,9 @@ balance.innerText = (await retrieve(username)) ?? 20
 
 let safeBalance = parseFloat(balance.innerText)
 
-restart.addEventListener("click", _ => {
-    insert(username, 20).then(location.reload)
+restart.addEventListener("click", async _ => {
+    await insert(username, 20)
+    location.reload()
 })
 
 decrease.addEventListener("click", _ => {
